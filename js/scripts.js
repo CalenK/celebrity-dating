@@ -17,17 +17,26 @@ onload = function () {
     const hobby = document.querySelector("input#hobbyInput").value;
 
     if (gender && sexuality && hobby) {
-      if (gender === "female" && sexuality === "straight" || "bisexual" && hobby === "outdoors") {
+      if (gender === "female" && (sexuality === "straight" || sexuality === "bisexual") && hobby === "outdoors") {
         document.getElementById("efron").removeAttribute("class");
-      } else if (gender === "male" && sexuality === "straight" || "bisexual" && hobby === "journalism") {
+      } else if (gender === "male" && (sexuality === "straight" || sexuality === "bisexual") && hobby === "journalism") {
         document.getElementById("hall").removeAttribute("class");
-      } else if (gender === "male" && sexuality === "gay" || "bisexual" && hobby === "singing" || "tapDancing"){
+      } else if (gender === "male" && (sexuality === "gay" || sexuality === "bisexual") && (hobby === "singing" || hobby === "tapDancing")){
         document.getElementById("saperstein").removeAttribute("class");
-      } else if (gender === "male" && sexuality === "they" || "bisexual" && hobby === "writing") {
+      } else if (gender === "male" && (sexuality === "straight" || sexuality === "bisexual") && hobby === "writing") {
         document.getElementById("fox").removeAttribute("class");  
       } else {
         document.getElementById("sorry").removeAttribute("class");
       }
+      // if (gender === "female" && sexuality === "straight" || hobby === "outdoors") {
+      //   document.getElementById("efron").removeAttribute("class");
+      // } else if (gender === "male" || sexuality === "straight" && hobby === "journalism") {
+      //   document.getElementById("hall").removeAttribute("class");
+      // } else if (gender === "male" && sexuality === "gay" && hobby === "singing" || "tap dancing") {
+      //   document.getElementById("saperstein").removeAttribute("class");
+      // } else if (gender === "male" && sexuality === "bisexual" || hobby === "writing") {
+      //   document.getElementById("fox").removeAttribute("class");
+      // }
     } else {
       document.getElementById("error-message").removeAttribute("class");
     }  
