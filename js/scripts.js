@@ -23,8 +23,8 @@ onload = function () {
         document.getElementById("hall").removeAttribute("class");
       } else if (gender === "male" && sexuality === "gay" || "bisexual" && hobby === "singing" || "tapDancing"){
         document.getElementById("saperstein").removeAttribute("class");
-      } else if (gender === "male" && sexuality === "straight" || "bisexual" && hobby === "writing") {
-        document.getElementById("fox").removeAttribute("class");
+      } else if (gender === "male" && sexuality === "they" || "bisexual" && hobby === "writing") {
+        document.getElementById("fox").removeAttribute("class");  
       } else {
         document.getElementById("sorry").removeAttribute("class");
       }
