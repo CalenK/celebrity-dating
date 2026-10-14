@@ -5,11 +5,23 @@ function hideResultsAndError() {
   document.getElementById("saperstein").setAttribute("class", "hidden");
   document.getElementById("fox").setAttribute("class", "hidden");
   document.getElementById("sorry").setAttribute("class", "hidden");
+  document.querySelector("form").removeEventListener("click", hideResultsAndError);
 }
 
-onload = function () {
+function advertisement() {
+  alert("Have you been experincing aches, nausea, fatigue, well if your awnser to all or any of those questions are yes then go to www.mericalemedicine.com");
+  document.querySelector("form").removeEventListener("submit", advertisement);
+}
+
+window.addEventListener("load", function() {
   const form = document.querySelector("form");
-  form.onsubmit = function(event) {
+  let resetBtn = document.querySelector("button#reset");
+  let efron = document.querySelector("div#efron");
+  let hall = document.querySelector("div#hall");
+  let saperstein = document.querySelector("div#saperstein");
+  let fox = document.querySelector("div#fox");
+
+  form.addEventListener("submit", function(event) {
     event.preventDefault();
     hideResultsAndError();
     const gender = document.querySelector("input#genderInput").value;
@@ -28,17 +40,19 @@ onload = function () {
       } else {
         document.getElementById("sorry").removeAttribute("class");
       }
-      // if (gender === "female" && sexuality === "straight" || hobby === "outdoors") {
-      //   document.getElementById("efron").removeAttribute("class");
-      // } else if (gender === "male" || sexuality === "straight" && hobby === "journalism") {
-      //   document.getElementById("hall").removeAttribute("class");
-      // } else if (gender === "male" && sexuality === "gay" && hobby === "singing" || "tap dancing") {
-      //   document.getElementById("saperstein").removeAttribute("class");
-      // } else if (gender === "male" && sexuality === "bisexual" || hobby === "writing") {
-      //   document.getElementById("fox").removeAttribute("class");
-      // }
     } else {
       document.getElementById("error-message").removeAttribute("class");
     }  
-  };
-};
+  });
+
+  form.addEventListener("submit", function() {
+    resetBtn.removeAttribute("class");
+  });
+
+  form.addEventListener("submit", advertisement);
+
+  resetBtn.addEventListener("click", hideResultsAndError);
+    document.getElementById("genderInput").value = null;
+    document.getElementById("sexualityInput").value = null;
+    document.getElementById("hobbyInput").value = null;
+});
